@@ -4,6 +4,7 @@
 FROM centos
 MAINTAINER Subodh Pachghare version: 0.1 <subodh.cyber@gmail.com>
 ENV container docker
+RUN echo nameserver 8.8.4.4 >> /etc/resolv.conf
 RUN yum install -y systemd 
 RUN yum install -y java-1.8.0-openjdk-headless
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done); \
